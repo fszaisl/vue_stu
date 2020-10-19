@@ -22,12 +22,10 @@ const routes = [
     {
         path: '/home',
         component: Home,
-        children: [
-            //
-            // {
-            //     path: '/home',
-            //     component: Home,
-            // },
+        children: [{
+                path: '/home',
+                component: Home,
+            },
             // {
             //     path: '/independent',
             //     component: Home,

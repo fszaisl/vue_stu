@@ -4,8 +4,7 @@
 			{{ message }}
 		</div>
 
-    <button v-on:click="handleClick" >点击事件</button>
-
+		<button v-on:click="handleClick">点击事件</button>
 	</div>
 </template>
 
@@ -15,23 +14,23 @@
 
 export default {
 	name: "Home",
-  components: {},
-  beforeCreate(){
-    console.log(`beforeCreate`)
-  },
+	components: {},
+	beforeCreate() {
+		console.log(`beforeCreate`);
+	},
 	created() {
 		console.log(this);
 		// this.axios.get('/')
-  },
+	},
 	data() {
 		return {
 			message: "message:123123123",
 		};
-  },
-  methods:{
-    handleClick:evt=>{
-      console.log(evt)
-    }
-  }
+	},
+	methods: {
+		handleClick: (evt) => {
+			console.log(evt);
+		},
+	},
 };
 </script>
