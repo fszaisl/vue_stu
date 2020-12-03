@@ -1,6 +1,6 @@
 import Vue from 'vue'
 import axios from 'axios';
-import { Notification } from 'element-ui';
+// import { Notification } from 'element-ui';
 import VueAxios from 'vue-axios';
 Vue.use(VueAxios, axios);
 
@@ -20,22 +20,24 @@ axios.interceptors.request.use(
 axios.interceptors.response.use(
     response => {
         const { data = {} } = response;
+        console.log(response)
         const { hasError, data: resData, error } = data;
         if (hasError) {
+            console.log(resData);
             return { hasError, error }
         }
         // 对响应数据做点什么
         // console.log(`interceptors`, response)
-        return resData;
+        return data;
     },
     (error = { name: 'Error', message: '' }) => {
-        const { name, message } = error;
+        // const { name, message } = error;
         // 对响应错误做点什么
         // console.log(JSON.stringify(error, null, 4))
-        Notification.error({
-            title: name,
-            message: message
-        })
+        // Notification.error({
+        //     title: name,
+        //     message: message
+        // })
         return Promise.reject(error);
     }
 );
